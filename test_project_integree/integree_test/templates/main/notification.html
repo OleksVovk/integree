@@ -1,0 +1,73 @@
+{% extends "main/__base__.html" %}
+
+{% block title %} Service details {% endblock title %}
+
+{% block content %}
+
+
+    <section class="mr-4 ml-4">
+        <div class="row pt-4 pb-2">
+            <hr>
+            <div class="orange-line w-100"></div>
+        </div>
+    </section>
+
+    <section class="width-medium text-color-darker">
+        <div class="pb-2">
+            <div class="border-dashed view-height w-100">
+                <div class="mt-4 ml-4 mr-4">
+                    <div class="row border-bottom border-3">
+                        <div class="col"><h3 class="color-header text-uppercase"> ZGLOSZENIA </h3></div>
+                        <div class="col d-flex justify-content-end mb-2">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="topnav">
+<form method="GET" action="" id="searchform">
+    <input class="searchfield" id="searchbox" name="q" type="text" value="{{ request.GET.q }}" placeholder="Search..."/>
+        <button type="submit"><i class="fa fa-search"></i></button>
+
+</form>
+
+</div>
+
+                    <table class="table borderless">
+                        <tbody>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Projekt </th>
+                                <th scope="row" class="col-2">Zgloszenie</th>
+                                <th scope="row" class="col-2"> Data </th>
+                                <th scope="row" class="col-2">Klient</th>
+                                <th scope="row" class="col-2">Dev</th>
+                                <th scope="row" class="col-1">Status</th>
+                                <th scope="row" class="col-1"></th>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                         <tbody class="text-color-lighter">
+                            {% for task in tasks %}
+                            <tr class="d-flex">
+                                <td class="col-2">
+                                    <b> {{ task.project }} </b>
+                                </td>
+                                <td class="col-2">
+                                    {{ task.subject }}
+                                </td>
+                                <td class="col-2">
+                                    {{ task.add_date }}
+                                </td>
+                                <th scope="row" class="col-2">{{ task.user }}</th>
+                                <th scope="row" class="col-2">{{ task.editor }}</th>
+                                <th scope="row" class="col-1">{{ task.get_status_display }}</th>
+                                <th> <button type="submit" class="button"><a href="{% url 'edit_notification' task.id %}">Details</a></button></th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

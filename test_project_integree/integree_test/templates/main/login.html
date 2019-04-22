@@ -1,0 +1,36 @@
+
+{% extends "main/__base__.html" %}
+
+{% block title %} Home page {% endblock title %}
+
+{% block content %}
+
+<style>
+    body { text-align: center; }
+    form { display: inline-block; }
+</style>
+
+
+<section class="login-page">
+      <h2>Please, log in</h2>
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" name="login" placeholder="Login" />
+            {{ form.errors.login }}
+
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Hasło" />
+            {{ form.errors.password }}
+        </div>
+
+        <div class="form-group form-group--buttons">
+          <button class="btn" type="submit">Zaloguj się</button>
+        </div>
+      </form>
+
+    </section>
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "main/__base__.html" %}
+
+{% block title %} Service details {% endblock title %}
+
+{% block content %}
+
+<style>
+    body { text-align: center; }
+    form { display: inline-block; }
+
+
+</style>
+
+<div class="col"><h3 class="color-header text-uppercase">DODAJ ZGLOSZENIA </h3></div>
+
+        {% if user.is_staff %}
+
+            <p>Not for staff users</p>
+
+        {% else %}
+
+            <form method="post">
+
+                <table>
+                    {{ form }}
+                    {% csrf_token %}
+                </table>
+                <button type="submit">Wyślij</button>
+
+            </form>
+
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

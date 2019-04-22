@@ -1,0 +1,97 @@
+{% extends "main/__base__.html" %}
+
+{% block title %} Notification details {% endblock title %}
+
+{% block content %}
+
+<style>
+    body { text-align: center; }
+    form { display: inline-block; }
+</style>
+
+    <section class="mr-4 ml-4">
+        <div class="row pt-4 pb-2">
+            <h1>Notification details</h1>
+            <hr>
+            <div class="orange-line w-100"></div>
+        </div>
+    </section>
+
+    <section class="width-medium text-color-darker">
+        <div class="pb-2">
+            <div class="border-dashed view-height w-100">
+                <div class="mt-4 ml-4 mr-4">
+                    <div class="row border-bottom border-3">
+                        <div class="col d-flex justify-content-end mb-2">
+                            <a href="{% url 'notification' %}" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">
+                                Back
+                            </a>
+                        </div>
+                    </div>
+
+                    <table class="table borderless">
+                        <tbody>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Inwestor </th>
+                                <td class="col-7" id="investor">
+                                    {{ task.project.investor }}
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Projekt </th>
+                                <td class="col-7" id="project">
+                                    {{ task.project.name }}
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Zgłoszenie </th>
+                                <td class="col-7" id="subject">
+                                    {{ task.subject }}
+                                </td>
+                            </tr>
+
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Status </th>
+                                <td class="col-7" id="status">
+                                    {{ task.status }}
+                                </td>
+                            </tr>
+
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Opis </th>
+                                <td class="col-7" id="description">
+                                    {{ task.description }}
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Data utworzenia </th>
+                                <td class="col-7" id="add_date">
+                                    {{ task.add_date }}
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Data modyfikacji </th>
+                                <td class="col-7" id="change_date">
+                                    {{ task.change_date }}
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Klient </th>
+                                <td class="col-7" id="user">
+                                    {{ task.user }}
+                                </td>
+                            </tr>
+                            <tr class="d-flex">
+                                <th scope="row" class="col-2"> Developer </th>
+                                <td class="col-7" id="editor">
+                                    {{ task.editor }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
